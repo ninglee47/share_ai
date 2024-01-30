@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { ChakraProvider } from '@chakra-ui/react'
-
 import { extendTheme } from "@chakra-ui/react";
-import { HomePage } from './pages/homePage';
-
+import { HomePage } from './homePage';
 
 const themes = {
   styles: {

@@ -1,10 +1,12 @@
-import { Box, Center, Grid, Text, HStack ,VStack } from "@chakra-ui/react"
+import { Box, Center, Grid, Heading, Text, HStack ,VStack } from "@chakra-ui/react"
+import NextLink from 'next/link'
+import { Link } from '@chakra-ui/react'
 
 export const HomePage = () => (
-    <>
      <Grid minH="100vh" p={3}>
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
         <VStack backgroundColor={'#141218'} h="full" w={'8%'} marginTop={'50px'}>
+          <Link href='/'>
           <Box marginBottom={'10px'}>
             <Center>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -13,6 +15,9 @@ export const HomePage = () => (
             </Center>
             <Text color={'#E6E0E9'}>Home</Text>
           </Box>
+          </Link>
+
+          <Link as={NextLink} href='/models'>
           <Box marginBottom={'10px'}>
             <Center>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -21,6 +26,9 @@ export const HomePage = () => (
             </Center>
           <Text color={'#E6E0E9'}>Models</Text>
           </Box>
+          </Link>
+          
+          <Link as={NextLink} href='/images'>
           <Box marginBottom={'10px'}>
             <Center>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -29,6 +37,9 @@ export const HomePage = () => (
             </Center>
             <Text color={'#E6E0E9'}>Images</Text>
           </Box>
+          </Link>
+
+          <Link as={NextLink} href='/profiles'>
           <Box>
             <Center>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -37,13 +48,18 @@ export const HomePage = () => (
             </Center>
             <Text color={'#E6E0E9'}>Profile</Text>
           </Box>
+          </Link>
         </VStack>
-        <VStack w="full" h="full">
-            <Text color={'#E6E0E9'}>Generate your images using artist models</Text>
-            <Text color={'#E6E0E9'}>Choosing models</Text>
+        
+        <VStack w="full" h="full" alignItems={'left'}>
+            <Box>
+              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Generate your images using artist models</Text>
+            </Box>
+            <Box >
+              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Choosing models</Text>
+            </Box>
         </VStack>
      </HStack>
      </Grid>
-    </>
    )
    
