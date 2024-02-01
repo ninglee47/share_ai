@@ -1,6 +1,8 @@
 import { Box, Center, Grid, Heading, Text, HStack ,VStack } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
+import { Textarea } from '@chakra-ui/react'
+import Prompt from "./prompt"
 
 const Images = () => (
      <Grid minH="100vh" p={3}>
@@ -54,6 +56,9 @@ const Images = () => (
         <VStack w="full" h="full" alignItems={'left'}>
             <Box >
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Images</Text>
+
+              <Prompt />
+
             </Box>
         </VStack>
      </HStack>
