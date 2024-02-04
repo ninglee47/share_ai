@@ -53,12 +53,22 @@ const Images = () => (
           </Link>
         </VStack>
         
-        <VStack w="full" h="full" alignItems={'left'}>
+        <VStack w="full" h="98%" alignItems={'left'} 
+        backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
+        borderRadius={'5px'}>
             <Box >
-              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Images</Text>
+              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Generate Images</Text>
 
               <Prompt />
 
+            </Box>
+        </VStack>
+
+        <VStack w="100%" h="98%" alignItems={'left'} 
+        backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
+        borderRadius={'5px'}>
+            <Box >
+              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Images</Text>
             </Box>
         </VStack>
      </HStack>
