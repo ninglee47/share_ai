@@ -51,7 +51,8 @@ const Profiles = () => (
           </Link>
         </VStack>
         
-        <VStack w="full" h="full" alignItems={'left'}>
+        <VStack w="100%" h="98%" alignItems={'left'} backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
+        borderRadius={'5px'}>
             <Box >
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Profiles</Text>
             </Box>
