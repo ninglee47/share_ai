@@ -1,14 +1,16 @@
-import { Box, Center, Grid, Text, HStack ,VStack } from "@chakra-ui/react"
+import { Box, Center, Grid, Image, Text, HStack ,VStack } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
 import ModelBox from "./modelBox"
 
-const Profiles = () => {
-  const egonModel = {
-    imgSrc: '/Egon_model.webp',
-    imgDes: 'Egon Schiele',
-  };
-  return (
+
+const HomePage = () => {
+   //Egon model
+    const egonModel = {
+      imgSrc: '/Egon_model.webp',
+      imgDes: 'Egon Schiele',
+    };
+  return(
      <Grid minH="100vh">
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
         <VStack backgroundColor={'#141218'} h="full" w={'80px'} marginTop={'50px'}>
@@ -59,19 +61,21 @@ const Profiles = () => {
         
         <VStack w="100%" h="98%" alignItems={'left'} backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
         borderRadius={'5px'}>
+            <Box>
+              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Generate your images using artist models</Text>
+            </Box>
+            <HStack>
+            <Image src="/Egon_1.webp" />
+            <Image src="/Egon_2.webp" />
+            </HStack>
             <Box >
-              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Profiles</Text>
-              <HStack>
-                <Box>
-                  <ModelBox data={egonModel}/>
-                  <Text>Usage: 156</Text>
-                </Box>
-              </HStack>
+              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Choosing models</Text>
+                <ModelBox data={egonModel}/>
             </Box>
         </VStack>
      </HStack>
      </Grid>
-  )
-}
-   
-export default Profiles;
+    )
+  }
+
+export default HomePage;

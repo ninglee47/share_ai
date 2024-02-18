@@ -5,10 +5,10 @@ import { Textarea } from '@chakra-ui/react'
 import Prompt from "./prompt"
 
 const Images = () => (
-     <Grid minH="100vh" p={3}>
+     <Grid minH="100vh">
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
-        <VStack backgroundColor={'#141218'} h="full" w={'8%'} marginTop={'50px'}>
-          <Link href='/'>
+        <VStack backgroundColor={'#141218'} h="full" w={'108px'} marginTop={'50px'}>
+          <Link as={NextLink} href='/home'>
           <Box marginBottom={'10px'}>
             <Center>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -53,7 +53,7 @@ const Images = () => (
           </Link>
         </VStack>
         
-        <VStack w="full" h="98%" alignItems={'left'} 
+        <VStack w="392px" h="98%" alignItems={'left'} 
         backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
         borderRadius={'5px'}>
             <Box >

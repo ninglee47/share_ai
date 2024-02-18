@@ -3,10 +3,10 @@ import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
 
 const Models = () => (
-     <Grid minH="100vh" p={3}>
+     <Grid minH="100vh">
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
-     <VStack backgroundColor={'#141218'} h="full" w={'8%'} marginTop={'50px'}>
-          <Link as={NextLink} href='/'>
+     <VStack backgroundColor={'#141218'} h="full" w={'80px'} marginTop={'50px'}>
+          <Link as={NextLink} href='/home'>
           <Box marginBottom={'10px'}>
             <Center>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
