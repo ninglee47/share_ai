@@ -1,8 +1,16 @@
 import { Box, Center, Grid, Heading, Text, HStack ,VStack } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
+import ModelBox from "./modelBox"
 
-const Models = () => (
+const Models = () => {
+     //Egon model
+     const egonModel = {
+      imgSrc: '/Egon_model.webp',
+      imgDes: 'Egon Schiele',
+    };
+
+  return (
      <Grid minH="100vh">
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
      <VStack backgroundColor={'#141218'} h="full" w={'80px'} marginTop={'50px'}>
@@ -56,9 +64,14 @@ const Models = () => (
             <Box >
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Choosing models</Text>
             </Box>
+            <HStack>
+              <Box>
+                  <ModelBox data={egonModel}/>
+              </Box>
+            </HStack>
         </VStack>
      </HStack>
      </Grid>
    )
-   
+}
 export default Models;

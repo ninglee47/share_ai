@@ -3,9 +3,11 @@ import { Box, Image, Text } from '@chakra-ui/react'
 
 function ModelBox({data}) {
   return(
-    <Box>
+    <Box alignItems="center">
         <Image src={data.imgSrc} h={"300px"}/>
-        <Text fontSize='15px' color={'#E6E0E9'}>{data.imgDes}</Text>
+        <Box textAlign="center">
+          <Text fontSize='15px' color={'#E6E0E9'}>{data.imgDes}</Text>
+        </Box>
     </Box>
   )
 }

@@ -61,10 +61,10 @@ const Profiles = () => {
         borderRadius={'5px'}>
             <Box >
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Profiles</Text>
-              <HStack>
+              <HStack marginTop={'15px'}>
                 <Box>
                   <ModelBox data={egonModel}/>
-                  <Text>Usage: 156</Text>
+                  <Text fontSize='15px' color={'#E6E0E9'}>Usage: 156</Text>
                 </Box>
               </HStack>
             </Box>

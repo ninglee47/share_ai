@@ -59,19 +59,21 @@ const HomePage = () => {
           </Link>
         </VStack>
         
-        <VStack w="100%" h="98%" alignItems={'left'} backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
+        <VStack w="100%" h="100%" alignItems={'left'} backgroundColor={'#2B2930'} padding={'10px'}
         borderRadius={'5px'}>
             <Box>
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Generate your images using artist models</Text>
             </Box>
             <HStack>
-            <Image src="/Egon_1.webp" />
-            <Image src="/Egon_2.webp" />
+            <Image src="/Egon_1.webp" h={"250px"} />
+            <Image src="/Egon_2.webp" h={"250px"} />
             </HStack>
-            <Box >
-              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Choosing models</Text>
-                <ModelBox data={egonModel}/>
-            </Box>
+            <HStack>
+              <Box>
+                <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Choosing models</Text>
+                  <ModelBox data={egonModel}/>
+              </Box>
+            </HStack>
         </VStack>
      </HStack>
      </Grid>
