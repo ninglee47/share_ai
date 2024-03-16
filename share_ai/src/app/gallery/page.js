@@ -1,13 +1,39 @@
-import { Box, Center, Grid, Heading, Text, HStack ,VStack } from "@chakra-ui/react"
+'use client'
+
+import { Box, Center, Grid, Image, Text, HStack ,VStack } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
-import { Textarea } from '@chakra-ui/react'
-import Prompt from "./prompt"
 
-const Images = () => (
+async function getData() {
+    const res = await fetch('http://localhost:3001/api/getInferences')
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+   
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+  }
+
+const Gallery = async () => {
+   //Egon model
+   const data = await getData()
+   let imgs = []
+   data.inferences.forEach(element => {
+    if (element.images.length != 0) {
+        element.images.forEach(img => {
+            let imgObj = {id: img.id, url: img.url}
+            imgs.push(imgObj)
+        });
+    }
+   });
+   console.log(imgs)
+  return(
      <Grid minH="100vh">
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
-        <VStack backgroundColor={'#141218'} h="full" w={'108px'} marginTop={'50px'}>
+        <VStack backgroundColor={'#141218'} h="full" w={'80px'} marginTop={'50px'}>
           <Link as={NextLink} href='/home'>
           <Box marginBottom={'10px'}>
             <Center>
@@ -64,26 +90,20 @@ const Images = () => (
           </Link>
         </VStack>
         
-        <VStack w="392px" h="98%" alignItems={'left'} 
-        backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
+        <VStack w="100%" h="100%" alignItems={'left'} backgroundColor={'#2B2930'} padding={'10px'}
         borderRadius={'5px'}>
-            <Box >
-              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Generate Images</Text>
-
-              <Prompt />
-
-            </Box>
-        </VStack>
-
-        <VStack w="100%" h="98%" alignItems={'left'} 
-        backgroundColor={'#2B2930'} margin={'5px'} padding={'10px'}
-        borderRadius={'5px'}>
-            <Box >
-              <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Images</Text>
-            </Box>
+          
+            <VStack>
+                {imgs.map(img => (
+                  
+                    <Image src={img.url}/>
+                   
+                    ))}
+            </VStack>
         </VStack>
      </HStack>
      </Grid>
-   )
-   
-export default Images;
+    )
+  }
+
+export default Gallery;

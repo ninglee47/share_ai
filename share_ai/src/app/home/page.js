@@ -57,6 +57,17 @@ const HomePage = () => {
             <Text color={'#E6E0E9'}>Profile</Text>
           </Box>
           </Link>
+
+          <Link as={NextLink} href='/gallery'>
+          <Box>
+            <Center>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 5V19H5V5H19ZM19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM14.14 11.86L11.14 15.73L9 13.14L6 17H18L14.14 11.86Z" fill="#CAC4D0"/>
+              </svg>
+            </Center>
+            <Text color={'#E6E0E9'}>Gallery</Text>
+          </Box>
+          </Link>
         </VStack>
         
         <VStack w="100%" h="100%" alignItems={'left'} backgroundColor={'#2B2930'} padding={'10px'}
