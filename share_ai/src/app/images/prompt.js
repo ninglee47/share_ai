@@ -1,4 +1,5 @@
 'use client'
+
  import { useState } from 'react'
  import { Box, Button, Center, Text, Textarea } from '@chakra-ui/react'
 
@@ -10,11 +11,10 @@ const outline = defineStyle({
   fontWeight: 'semibold', // change the font weight
 })
 
-function Prompt() {
-    const [promptValue, setPromptValue] = useState(null)
-    const [keyValue, setKeyValue] = useState(null)
-    const [responseData, setResponseData] = useState(null);
-
+function Prompt({ inferenceId, onSetInferenceId}) {
+    const [promptValue, setPromptValue] = useState('')
+    const [keyValue, setKeyValue] = useState('')
+  
     let handlePromptInputChange = (e) => {
       let inputValue = e.target.value
       setPromptValue(inputValue)
@@ -27,7 +27,8 @@ function Prompt() {
 
     const handleButtonClick = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/generateImage', {
+        console.log('Clicked generate', `promptInput: ${promptValue}`)
+        const response = await fetch('http://0.0.0.0:3001/api/generateImage', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -36,7 +37,9 @@ function Prompt() {
         });
         const data = await response.json();
         console.log('resfrom', data)
-        setResponseData(data);
+        const inferenceId = data;
+        // const inferenceId = 'inf_brnVSSnKqymJMBjRWkQQf7CR'
+        onSetInferenceId(inferenceId);
       } catch (error) {
         console.error('Error sending POST request:', error);
       }
@@ -53,7 +56,7 @@ function Prompt() {
           onChange={handlePromptInputChange}
           placeholder='objects, colors, places, characters...'
           size='xl'
-          colorScheme={'linkedin'}
+          colorScheme={'white'}
           w={'312px'}
           h={'116px'}
           borderRadius={'5px'}

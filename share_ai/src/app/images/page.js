@@ -1,10 +1,22 @@
+'use client'
+
 import { Box, Center, Grid, Heading, Text, HStack ,VStack } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
-import { Textarea } from '@chakra-ui/react'
 import Prompt from "./prompt"
+import PromptResult from "./promptResult"
 
-const Images = () => (
+import { Suspense } from 'react'
+import { useState } from 'react'
+
+const Images = () => {
+  const [inferenceId, setInferenceId] = useState('')
+  
+  const onSetInferenceId= (resInstanceId) => {
+    setInferenceId(resInstanceId);
+  };
+
+  return (
      <Grid minH="100vh">
      <HStack w="full" spacing={2} align="flex-start" backgroundColor={'#141218'}>
         <VStack backgroundColor={'#141218'} h="full" w={'108px'} marginTop={'50px'}>
@@ -70,7 +82,7 @@ const Images = () => (
             <Box >
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Generate Images</Text>
 
-              <Prompt />
+              <Prompt inferenceId={inferenceId} onSetInferenceId ={onSetInferenceId} />
 
             </Box>
         </VStack>
@@ -81,9 +93,15 @@ const Images = () => (
             <Box >
               <Text as={'b'} fontSize='30px' color={'#E6E0E9'}>Images</Text>
             </Box>
+            <Box>
+              
+              {/* <Suspense fallback={<p>Loading feed...</p>}> */}
+                <PromptResult inferenceId={inferenceId}/>
+              {/* </Suspense> */}
+            </Box>
         </VStack>
      </HStack>
      </Grid>
    )
-   
+}
 export default Images;
